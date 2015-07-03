@@ -7,8 +7,7 @@
     - cis-level-1
     - cis-sec_4.5
     - cis-sec_4.5.1
-
-- name: 4.5.2 Create /etc/hosts.allow (Not Scored)
+- name: CIS 4.5.2 Create /etc/hosts.allow
   lineinfile: >
     state=present
     create=yes
@@ -16,31 +15,36 @@
     regexp=^ALL
     line=ALL:{{ tcp_allow | default("ALL") }}
   tags:
-    - notscored
-    - section4.5
-    - section4.5.2
-- name: 4.5.3 Verify Permissions on /etc/hosts.allow (Scored)
+    - cis-level-1
+    - cis-sec_4.5
+    - cis-sec_4.5.2
+- name: CIS 4.5.3 Verify Permissions on /etc/hosts.allow
   file: >
     path=/etc/hosts.allow
+    owner=root
+    group=root
     mode=0644
   tags:
-    - scored
-    - section4.5
-    - section4.5.3
-
-# CIS 4.5.2 Create /etc/hosts.allow
-### - cis-level-1
-
-# CIS 4.5.3 Verify Permissions on /etc/hosts.allow
-### - cis-level-1
-chmod 644 /etc/hosts.allow
-chown root:root /etc/hosts.allow
-
-# CIS 4.5.4 Create /etc/hosts.deny
-### - cis-level-1
-echo "ALL: ALL" >> /etc/hosts.deny
-
-# CIS 4.5.5 Verify Permissions on /etc/hosts.deny 
-### - cis-level-1
-chmod 644 /etc/hosts.deny
-chown root:root /etc/hosts.deny
+    - cis-level-1
+    - cis-sec_4.5
+    - cis-sec_4.5.3
+- name: CIS 4.5.4 Create /etc/hosts.deny
+  lineinfile: >
+    state=present
+    create=yes
+    dest=/etc/hosts.deny
+    line="ALL: ALL"
+  tags:
+    - cis-level-1
+    - cis-sec_4.5
+    - cis-sec_4.5.4
+- name: CIS 4.5.5 Verify Permissions on /etc/hosts.deny
+  file: >
+    path=/etc/hosts.deny
+    owner=root
+    group=root
+    mode=0644
+  tags:
+    - cis-level-1
+    - cis-sec_4.5
+    - cis-sec_4.5.5
