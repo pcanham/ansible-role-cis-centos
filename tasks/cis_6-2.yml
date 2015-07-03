@@ -8,8 +8,8 @@
         line='Protocol 2'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.1
     - name: CIS 6.2.2 Set LogLevel to INFO
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -17,10 +17,10 @@
         line='LogLevel INFO'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.2
     - name: CIS 6.2.3 Set Permissions on /etc/ssh/sshd_config
-      file: 
+      file:
         path=/etc/ssh/sshd_config
         state=touch
         mode="600"
@@ -28,8 +28,8 @@
         group="root"
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.3
     - name: CIS 6.2.4 Disable SSH X11 Forwarding
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -37,8 +37,8 @@
         line='X11Forwarding no'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.4
     - name: CIS 6.2.5 Set SSH MaxAuthTries to 4 or Less
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -46,8 +46,8 @@
         line='MaxAuthTries 4'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.5
     - name: CIS 6.2.6 Set SSH IgnoreRhosts to Yes
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -55,8 +55,8 @@
         line='IgnoreRhosts yes'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.6
     - name: CIS 6.2.7 Set SSH HostbasedAuthentication to No
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -64,8 +64,8 @@
         line='HostbasedAuthentication no'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.7
     - name: CIS 6.2.8 Disable SSH Root Login
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -73,8 +73,8 @@
         line='PermitRootLogin no'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.8
     - name: CIS 6.2.9 Set SSH PermitEmptyPasswords to No
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -82,8 +82,8 @@
         line='PermitEmptyPasswords no'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.9
     - name: CIS 6.2.10 Do Not Allow Users to Set Environment Options
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -91,8 +91,8 @@
         line='PermitUserEnvironment no'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.10
     - name: CIS 6.2.11 Use Only Approved Cipher in Counter Mode
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -100,8 +100,8 @@
         insertafter=EOF
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.11
     - name: CIS 6.2.12 Set Idle Timeout Interval for User Login - ClientAliveInterval
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -109,8 +109,8 @@
         line='#ClientAliveInterval 300'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.12
     - name: CIS 6.2.12 Set Idle Timeout Interval for User Login - ClientAliveCountMax
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -118,8 +118,8 @@
         line='ClientAliveCountMax 0'
       tags:
         - cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.13
 #    - name: CIS 6.2.13 Limit Access via SSH - AllowUsers
 #      lineinfile:
 #        dest=/etc/ssh/sshd_config
@@ -127,8 +127,8 @@
 #        insertafter=EOF
 #      tags:
 #        - cis-level-1
-#        - sshd-conf
-#      sudo: yes
+#        - cis-sec_6.2
+#        - cis-sec_6.2.13
 #    - name: CIS 6.2.13 Limit Access via SSH - AllowGroups
 #      lineinfile:
 #        dest=/etc/ssh/sshd_config
@@ -136,8 +136,8 @@
 #        insertafter=EOF
 #      tags:
 #        - cis-level-1
-#        - sshd-conf
-#      sudo: yes
+#        - cis-sec_6.2
+#        - cis-sec_6.2.13
 #    - name: CIS 6.2.13 Limit Access via SSH - DenyUsers
 #      lineinfile:
 #        dest=/etc/ssh/sshd_config
@@ -145,8 +145,8 @@
 #        insertafter=EOF
 #      tags:
 #        - cis-level-1
-#        - sshd-conf
-#      sudo: yes
+#        - cis-sec_6.2
+#        - cis-sec_6.2.13
 #    - name: CIS 6.2.13 Limit Access via SSH - DenyUsers
 #      lineinfile:
 #        dest=/etc/ssh/sshd_config
@@ -154,8 +154,8 @@
 #        insertafter=EOF
 #      tags:
 #        - cis-level-1
-#        - sshd-conf
-#      sudo: yes
+#        - cis-sec_6.2
+#        - cis-sec_6.2.13
 #    - name: CIS 6.2.13 Limit Access via SSH - DenyGroups
 #      lineinfile:
 #        dest=/etc/ssh/sshd_config
@@ -163,8 +163,8 @@
 #        insertafter=EOF
 #      tags:
 #        - cis-level-1
-#        - sshd-conf
-#      sudo: yes
+#        - cis-sec_6.2
+#        - cis-sec_6.2.13
     - name: CIS 6.2.14 Set SSH Banner
       lineinfile:
         dest=/etc/ssh/sshd_config
@@ -172,7 +172,7 @@
         line='Banner /etc/issue'
       tags:
       	- cis-level-1
-        - sshd-conf
-      sudo: yes
+        - cis-sec_6.2
+        - cis-sec_6.2.14
 
 
