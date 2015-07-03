@@ -1,6 +1,8 @@
 ## CIS 1.2 Configure Software Updates
 - name: CIS 1.2.1 Verify CentOS GPG Key is Installed
-  rpm_key: state=present key=/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+  rpm_key:
+    state=present
+    key=/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
   tags:
     - cis-level-1
     - cis-sec_1.2
