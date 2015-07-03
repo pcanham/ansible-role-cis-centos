@@ -112,7 +112,12 @@
     - cis-sec_1.1
     - cis-sec_1.1.17
   - name: Create /etc/modprobe.d/CIS.conf with root ownership & mode
-    file: path=/etc/modprobe.d/CIS.conf state=touch owner=root group=root mode=0600
+    file: >
+      path=/etc/modprobe.d/CIS.conf
+      state=touch
+      owner=root
+      group=root
+      mode=0600
     changed_when: false
     tags:
       - cis-level-1
