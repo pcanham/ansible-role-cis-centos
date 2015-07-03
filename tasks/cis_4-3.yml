@@ -1,0 +1,7 @@
+## CIS 4.3 Wireless Networking
+- name: CIS 4.3.1 Deactivate Wireless Interfaces
+  debug: msg="*** Not required, servers with no Wireless"
+  tags:
+    - cis-level-1
+    - cis-sec_4.3
+    - cis-sec_4.3.1

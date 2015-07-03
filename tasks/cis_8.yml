@@ -1,0 +1,24 @@
+# CIS 8 Warning Banners
+# CIS 8.1 Set Warning Banner for Standard Login Services
+### - cis-level-1
+/etc/motd
+/etc/issue
+/etc/issue.net
+# CIS 8.2 Remove OS Information from Login Warning Banners
+### - cis-level-1
+\m - machine architecture (uname -m)
+\r - operating system release (uname -r)
+\s - operating system name
+\v - operating system version (uname -v)
+
+Edit the /etc/motd, /etc/issue and /etc/issue.net files and remove any lines
+containing \m, \r, \s or \v.
+# CIS 8.3 Set GNOME Warning Banner
+### - cis-level-1
+/etc.d/dconf/db/gdm.d/01-banner-message
+[org/gnome/login-screen]
+banner-message-enable=true
+banner-message-text='Type the banner message here' 
+
+dconf update
+

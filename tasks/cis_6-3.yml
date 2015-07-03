@@ -1,0 +1,47 @@
+## CIS 6.3 Configure PAM
+# CIS 6.3.1 Upgrade Password Hashing Algorithm to SHA-512
+### - cis-level-1
+authconfig --passalgo=sha512 --update
+
+# CIS 6.3.2 Set Password Creation Requirement Parameters Using pam_pwquality
+### - cis-level-1
+/etc/pam.d/system-auth
+password requisite pam_pwquality.so try_first_pass local_users_only retry=3
+authtok_type=
+
+/etc/security/pwquality.conf
+minlen=14
+dcredit=-1
+ucredit=-1
+ocredit=-1
+lcredit=-1
+
+# CIS 6.3.3 Set Lockout for Failed Password Attempts
+### - cis-level-1
+cat /etc/pam.d/password-auth
+#%PAM-1.0
+# This file is auto-generated.
+# User changes will be destroyed the next time authconfig is run.
+auth required pam_env.so
+auth required pam_faillock.so preauth audit silent deny=5 unlock_time=900
+auth [success=1 default=bad] pam_unix.so
+auth [default=die] pam_faillock.so authfail audit deny=5 unlock_time=900
+auth sufficient pam_faillock.so authsucc audit deny=5 unlock_time=900
+auth required pam_deny.so
+
+cat /etc/pam.d/system-auth
+#%PAM-1.0
+# This file is auto-generated.
+# User changes will be destroyed the next time authconfig is run.
+auth required pam_env.so
+auth required pam_faillock.so preauth audit silent deny=5 unlock_time=900
+auth [success=1 default=bad] pam_unix.so
+auth [default=die] pam_faillock.so authfail audit deny=5 unlock_time=900
+auth sufficient pam_faillock.so authsucc audit deny=5 unlock_time=900
+auth required pam_deny.so
+
+
+# CIS 6.3.4 Limit Password Reuse
+### - cis-level-1
+/etc/pam.d/system-auth
+password sufficient pam_unix.so remember=5

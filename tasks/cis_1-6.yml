@@ -1,0 +1,30 @@
+## CIS 1.6 Additional Process Hardening
+- name: CIS 1.6.1 Restrict Core Dumps (PAM)
+  lineinfile: >
+    dest=/etc/security/limits.conf
+    line="* hard core 0"
+    insertafter=EOF
+  tags:
+    - cis-level-1
+    - cis-sec_1.6
+    - cis-sec_1.6.1
+- name: CIS 1.6.1 Restrict core dumps (sysctl)
+  sysctl: >
+    name=fs.suid_dumpable
+    value=0
+    state=present
+    ignoreerrors=yes
+  tags:
+    - cis-level-1
+    - cis-sec_1.6
+    - cis-sec_1.6.1
+- name: CIS 1.6.2 Enable Randomized Virtual Memory Region Placement
+  sysctl: >
+    name=kernel.randomize_va_space
+    value=2
+    state=present
+    ignoreerrors=yes
+  tags:
+    - cis-level-1
+    - cis-sec_1.6
+    - cis-sec_1.6.2

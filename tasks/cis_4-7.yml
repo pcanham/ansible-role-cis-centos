@@ -1,0 +1,4 @@
+## CIS 4.7 Enable firewalld
+### - cis-level-1
+systemctl enable firewalld
+

@@ -1,0 +1,17 @@
+## Added for date/timestamp on bash history
+export HISTTIMEFORMAT="%F %T "
+
+## Saving history files per process
+[ -d ~/.history ] || mkdir --mode=0700 ~/.history
+[ -d ~/.history ] && chmod 0700 ~/.history
+HISTFILE=~/.history/history.$$
+# close any old history file by zeroing HISTFILESIZE  
+##HISTFILESIZE=0  
+# then set HISTFILESIZE to a large value
+HISTFILESIZE=4096  
+HISTSIZE=8192
+# removing history files older than 62 days
+find ~/.history -type f -name history.* -atime 62 -exec rm -f {} \; > /dev/null 2>&1
+# create symlink to .bash_history incase anyone decides to view this file for history
+rm -f ~/.bash_history > /dev/null 2>&1
+ln -s ~/.history/$(ls -1h ~/.history/ | tail -1) ~/.bash_history

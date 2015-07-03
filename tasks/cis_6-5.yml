@@ -1,0 +1,4 @@
+# CIS 6.5 Restrict Access to the su Command
+### - cis-level-1
+/etc/pam.d/su
+auth required pam_wheel.so use_uid

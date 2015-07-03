@@ -1,0 +1,56 @@
+## CIS 4.4 IPv6
+# CIS 4.4.1 Configure IPv6
+- name: CIS 4.4.1.1 Disable IPv6 Router Advertisements (net.ipv6.conf.all.accept_ra)
+  sysctl: >
+    name=net.ipv6.conf.all.accept_ra
+    value=0
+    state=present
+    ignoreerrors=yes
+  tags:
+    - cis-level-1
+    - cis-sec_4.4
+    - cis-sec_4.4.1
+    - cis-sec_4.4.1.1
+- name: CIS 4.4.1.1 Disable IPv6 Router Advertisements (net.ipv6.conf.default.accept_ra)
+  sysctl: >
+    name=net.ipv6.conf.default.accept_ra
+    value=0
+    state=present
+    ignoreerrors=yes
+  tags:
+    - cis-level-1
+    - cis-sec_4.4
+    - cis-sec_4.4.1
+    - cis-sec_4.4.1.1
+- name: CIS 4.4.1.2 Disable IPv6 Redirect Acceptance (net.ipv6.conf.all.accept_redirects)
+  sysctl: >
+    name=net.ipv6.conf.all.accept_redirects
+    value=0
+    state=present
+    ignoreerrors=yes
+  tags:
+    - cis-level-1
+    - cis-sec_4.4
+    - cis-sec_4.4.1
+    - cis-sec_4.4.1.2
+- name: CIS 4.4.1.2 Disable IPv6 Redirect Acceptance (net.ipv6.conf.default.accept_redirects)
+  sysctl: >
+    name=net.ipv6.conf.default.accept_redirects
+    value=0
+    state=present
+    ignoreerrors=yes
+  tags:
+    - cis-level-1
+    - cis-sec_4.4
+    - cis-sec_4.4.1
+    - cis-sec_4.4.1.2
+- name: CIS 4.4.2 Disable IPv6
+  sysctl: >
+    name=net.ipv6.conf.all.disable_ipv6
+    value=1
+    state=present
+    ignoreerrors=yes
+  tags:
+    - cis-level-1
+    - cis-sec_4.4
+    - cis-sec_4.4.2

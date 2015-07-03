@@ -1,0 +1,95 @@
+
+# CIS 9 System Maintenance
+# CIS 9.1 Verify System File Permissions
+# CIS 9.1.1 Verify System File Permissions
+### - cis-level-2
+rpm -Va --nomtime --nosize --nomd5 --nolinkto > <filename>
+
+# CIS 9.1.2 Verify Permissions on /etc/passwd
+### - cis-level-1
+/bin/chmod 644 /etc/passwd
+
+# CIS 9.1.3 Verify Permissions on /etc/shadow
+### - cis-level-1
+/bin/chmod 000 /etc/shadow
+
+# CIS 9.1.4 Verify Permissions on /etc/gshadow
+### - cis-level-1
+/bin/chmod 000 /etc/gshadow
+
+# CIS 9.1.5 Verify Permissions on /etc/group
+### - cis-level-1
+/bin/chmod 644 /etc/group
+
+# CIS 9.1.6 Verify User/Group Ownership on /etc/passwd
+### - cis-level-1
+/bin/chown root:root /etc/passwd
+
+# CIS 9.1.7 Verify User/Group Ownership on /etc/shadow
+### - cis-level-1
+/bin/chown root:root /etc/shadow
+
+# CIS 9.1.8 Verify User/Group Ownership on /etc/gshadow
+### - cis-level-1
+/bin/chown root:root /etc/gshadow
+
+# CIS 9.1.9 Verify User/Group Ownership on /etc/group
+### - cis-level-1
+/bin/chown root:root /etc/group
+
+# CIS 9.1.10 Find World Writable Files
+### - cis-level-1
+Audit:
+#!/bin/bash
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -
+perm -0002
+
+Remediation:
+Removing write access for the "other" category (chmod o-w <filename>) is advisable, but
+always consult relevant vendor documentation to avoid breaking any application
+dependencies on a given file.
+
+# CIS 9.1.11 Find Un-owned Files and Directories
+### - cis-level-1
+Audit:
+#!/bin/bash
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser -
+ls
+Remediation:
+Locate files that are owned by users or groups not listed in the system configuration files,
+and reset the ownership of these files to some active user on the system as appropriate.
+
+# CIS 9.1.12 Find Un-grouped Files and Directories
+### - cis-level-1
+Audit:
+#!/bin/bash
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nogroup -
+ls
+Remediation:
+Locate files that are owned by users or groups not listed in the system configuration files,
+and reset the ownership of these files to some active user on the system as appropriate.
+
+# CIS 9.1.13 Find SUID System Executables
+### - cis-level-1
+Audit:
+#!/bin/bash
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -
+perm -4000 -print
+Remediation:
+Ensure that no rogue set-UID programs have been introduced into the system. Review the
+files returned by the action in the Audit section and confirm the integrity of these binaries
+as described below:
+# rpm -V `rpm -qf /usr/bin/sudo`
+.......T /usr/bin/sudo
+SM5....T /usr/bin/sudoedit
+
+
+# CIS 9.1.14 Find SGID System Executables
+### - cis-level-1
+#!/bin/bash
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -
+perm -2000 -print
+
+Remediation:
+Ensure that no rogue set-GID programs have been introduced into the system
+# /bin/rpm -V `/bin/rpm -qf sudo`

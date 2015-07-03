@@ -1,0 +1,23 @@
+## CIS 4.6 Uncommon Network Protocols
+# CIS 4.6.1 Disable DCCP
+### - cis-level-1
+### - modprobe
+/etc/modprobe.d/CIS.conf
+install dccp /bin/true
+# CIS 4.6.2 Disable SCTP
+### - cis-level-1
+### - modprobe
+/etc/modprobe.d/CIS.conf
+install sctp /bin/true
+
+# CIS 4.6.3 Disable RDS
+### - cis-level-1
+### - modprobe
+/etc/modprobe.d/CIS.conf
+install rds /bin/true
+
+# CIS 4.6.4 Disable TIPC
+### - cis-level-1
+### - modprobe
+/etc/modprobe.d/CIS.conf
+install tipc /bin/true

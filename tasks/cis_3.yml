@@ -1,0 +1,183 @@
+## CIS 3 Special Purpose Services
+# 
+- name: CIS 3.1 Set Daemon umask
+  lineinfile: >
+    dest=/etc/sysconfig/init
+    line="umask 027"
+    insertafter=EOF
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.1
+- name: CIS 3.2 Remove the X Window System (run level)
+  file: >
+    src=/usr/lib/systemd/system/multi-user.target
+    dest=/etc/lib/systemd/system/default.target
+    owner=root
+    group=root
+    state=link
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.2
+- name: CIS 3.2 Remove the X Window System (package removal)
+  yum: >
+    name=xorg-x11-server-common
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.2
+- name: CIS 3.3 Disable Avahi Server 
+  service: >
+    name=avahi-daemon
+    state=stopped
+    enabled=no
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.3
+- name: CIS 3.4 Disable Print Server - CUPS
+  service: >
+    name=cups
+    state=stopped
+    enabled=no
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.4
+- name: CIS 3.5 Remove DHCP Server
+  yum: >
+    name=dhcp
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.5
+- name: CIS 3.6 Configure Network Time Protocol (package install)
+  yum: >
+    pkg=ntp
+    state=installed    
+  always_run: yes
+  tags:
+    - cis-level-1
+    - cis-sec_3.6
+- name: CIS 3.6 Configure Network Time Protocol (ipv4)
+    lineinfile: >
+      dest=/etc/ntp.conf
+      state=present
+      regexp="^restrict default"
+      line="restrict default kod nomodify notrap nopeer noquery"
+      insertafter=EOF
+    tags:
+      - cis-level-1
+      - cis-sec_3.6
+- name: CIS 3.6 Configure Network Time Protocol (ipv6)
+    lineinfile: >
+      dest=/etc/ntp.conf
+      state=present
+      regexp="^restrict -6 default"
+      line="restrict -6 default kod nomodify notrap nopeer noquery"
+      insertafter=EOF
+    tags:
+      - cis-level-1
+      - cis-sec_3.6
+- name: CIS 3.6 Configure Network Time Protocol (user account ntp should run as)
+    lineinfile: >
+      dest=/etc/sysconfig/ntpd
+      state=present
+      regexp="OPTIONS=\"-g\""
+      line="OPTIONS=\"-g -u ntp:ntp\""
+    tags:
+      - cis-level-1
+      - cis-sec_3.6
+- name: CIS 3.7 Remove LDAP
+  yum: "name={{item}} state=absent"
+  with_items: [
+               "openldap-servers",
+               "openldap-clients"
+              ]
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.7
+- name: CIS 3.8 Disable NFS and RPC
+  service: >
+    name={{item}}
+    state=stopped
+    enabled=no
+  with_items: [
+              "nfslock",
+              "rpcgssd",
+              "rpcbind",
+              "rpcidmapd",
+              "rpcsvcgssd"
+              ]
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.8
+- name: CIS 3.9 Remove DNS Server
+  yum: >
+    name=bind
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.9
+- name: CIS 3.10 Remove FTP Server
+  yum: >
+    name=vsftpd
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.10
+- name: CIS 3.11 Remove HTTP Server 
+  yum: >
+    name=httpd
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.11
+- name: CIS 3.12 Remove Dovecot (IMAP and POP3 services)
+  yum: >
+    name=dovecot
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.12
+- name: CIS 3.13 Remove Samba
+  yum: >
+    name=samba
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.13
+- name: 3.14 Remove HTTP Proxy Server
+  yum: >
+    name=squid
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.14
+- name: CIS 3.15 Remove SNMP Server
+  yum: >
+    name=net-snmp
+    state=absent
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.15
+- name: CIS 3.16 Configure Mail Transfer Agent for Local-Only Mode
+    lineinfile: >
+      dest=/etc/postfix/main.cf
+      state=present
+      line="inet_interfaces = localhost"
+    tags:
+      - cis-level-1
+      - cis-sec_3.16

@@ -1,0 +1,15 @@
+## CIS 1.5 Secure Boot Settings
+- name: CIS 1.5.1 + 1.5.2 Set Ownership and Permissions on /boot/grub2/grub.cfg
+  file: path=/boot/grub2/grub.cfg state=touch owner=root group=root mode='og-rwx'
+  changed_when: false
+  tags:
+    - cis-level-1
+    - cisc-sec_1.5
+    - cisc-sec_1.5.1
+    - cisc-sec_1.5.2
+- name: CIS 1.5.3 Set Boot Loader Password
+  debug: msg="*** Dangerous for Production! Please assess whether required."
+  tags:
+    - cis-level-1
+    - cis-sec_1.5
+    - cis-sec_1.5.3

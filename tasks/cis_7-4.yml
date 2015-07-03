@@ -1,0 +1,5 @@
+# CIS 7.4 Set Default umask for Users
+### - cis-level-1
+/etc/bashrc
+/etc/profile.d/cis.sh
+umask 77

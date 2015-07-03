@@ -1,0 +1,6 @@
+## CIS 5.3 Configure logrotate
+### - cis-level-1
+/etc/logrotate.d/syslog
+/var/log/messages /var/log/secure /var/log/maillog /var/log/spooler /var/log/boot.log /var/log/cron {
+
+

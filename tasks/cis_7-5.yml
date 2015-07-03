@@ -1,0 +1,3 @@
+# CIS 7.5 Lock Inactive User Accounts
+### - cis-level-1
+useradd -D -f 35

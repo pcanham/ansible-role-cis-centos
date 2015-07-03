@@ -1,0 +1,5 @@
+# CIS 6.4 Restrict root Login to System Console
+### - cis-level-1
+/etc/securetty
+Remove entries for any consoles that are not in a physically secure location
+
