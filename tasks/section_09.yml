@@ -1,0 +1,3 @@
+---
+- include: cis_9-1.yml
+- include: cis_9-2.yml

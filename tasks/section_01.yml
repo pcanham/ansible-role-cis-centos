@@ -1,0 +1,8 @@
+---
+- include: cis_1-1.yml
+- include: cis_1-2.yml
+- include: cis_1-3.yml
+- include: cis_1-4.yml
+- include: cis_1-5.yml
+- include: cis_1-6.yml
+- include: cis_1-7.yml
