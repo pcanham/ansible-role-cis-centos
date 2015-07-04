@@ -1,4 +1,4 @@
-## CIS 1.6 Additional Process Hardening
+- name: CIS 1.6 Additional Process Hardening
 - name: CIS 1.6.1 Restrict Core Dumps (PAM)
   lineinfile: >
     dest=/etc/security/limits.conf

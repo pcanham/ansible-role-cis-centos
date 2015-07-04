@@ -1,5 +1,4 @@
-## CIS 3 Special Purpose Services
-# 
+- name: CIS 3 Special Purpose Services
 - name: CIS 3.1 Set Daemon umask
   lineinfile: >
     dest=/etc/sysconfig/init
@@ -28,7 +27,7 @@
     - cis-level-1
     - cis-sec_3
     - cis-sec_3.2
-- name: CIS 3.3 Disable Avahi Server 
+- name: CIS 3.3 Disable Avahi Server
   service: >
     name=avahi-daemon
     state=stopped
@@ -57,7 +56,7 @@
 - name: CIS 3.6 Configure Network Time Protocol (package install)
   yum: >
     pkg=ntp
-    state=installed    
+    state=installed
   always_run: yes
   tags:
     - cis-level-1
@@ -133,7 +132,7 @@
     - cis-level-1
     - cis-sec_3
     - cis-sec_3.10
-- name: CIS 3.11 Remove HTTP Server 
+- name: CIS 3.11 Remove HTTP Server
   yum: >
     name=httpd
     state=absent

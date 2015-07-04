@@ -1,5 +1,4 @@
-# CIS 1.1 Filesystem Configuration
-
+- name: CIS 1.1 Filesystem Configuration
 - name: CIS 1.1.1 Create Separate Partition for /tmp
   debug: msg="*** Manually create Separate Partition for /tmp."
   tags:
@@ -106,29 +105,29 @@
     - cis-sec_1.1.15
     - cis-sec_1.1.16
 - name: CIS 1.1.17 Set Sticky Bit on All World-Writable Directories
-  debug: msg="*** Manual intervension needed on this, could be dangerous"
+  debug: msg="*** Manual intervension needed on this could be dangerous"
   tags:
     - cis-level-1
     - cis-sec_1.1
     - cis-sec_1.1.17
-  - name: Create /etc/modprobe.d/CIS.conf with root ownership & mode
-    file: >
-      path=/etc/modprobe.d/CIS.conf
-      state=touch
-      owner=root
-      group=root
-      mode=0600
-    changed_when: false
-    tags:
-      - cis-level-1
-      - cis-sec_1.1
-      - cis-sec_1.1.18
-      - cis-sec_1.1.19
-      - cis-sec_1.1.20
-      - cis-sec_1.1.21
-      - cis-sec_1.1.22
-      - cis-sec_1.1.23
-      - cis-sec_1.1.24
+- name: Create /etc/modprobe.d/CIS.conf with root ownership & mode
+  file: >
+    path=/etc/modprobe.d/CIS.conf
+    state=touch
+    owner=root
+    group=root
+    mode=0600
+  changed_when: false
+  tags:
+    - cis-level-1
+    - cis-sec_1.1
+    - cis-sec_1.1.18
+    - cis-sec_1.1.19
+    - cis-sec_1.1.20
+    - cis-sec_1.1.21
+    - cis-sec_1.1.22
+    - cis-sec_1.1.23
+    - cis-sec_1.1.24
 - name: CIS 1.1.18 Disable Mounting of cramfs Filesystems
   lineinfile: >
     state=present

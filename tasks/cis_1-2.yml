@@ -1,4 +1,4 @@
-## CIS 1.2 Configure Software Updates
+- name: CIS 1.2 Configure Software Updates
 - name: CIS 1.2.1 Verify CentOS GPG Key is Installed
   rpm_key:
     state=present
@@ -17,16 +17,15 @@
     - cis-level-1
     - cis-sec_1.2
     - cis-sec_1.2.2
-  - name: CIS 1.2.3 Obtain Software Package Updates with yum
-    debug: msg="*** Check manually."
-    tags:
-      - cis-level-1
-      - cis-sec_1.2
-      - cis-sec_1.2.3
-  - name: CIS 1.2.4 Verify Package Integrity Using RPM
-    debug: msg="*** Check manually."
-    tags:
-      - cis-level-1
-      - cis-sec_1.2
-      - cis-sec_1.2.3
-
+- name: CIS 1.2.3 Obtain Software Package Updates with yum
+  debug: msg="*** Check manually."
+  tags:
+    - cis-level-1
+    - cis-sec_1.2
+    - cis-sec_1.2.3
+- name: CIS 1.2.4 Verify Package Integrity Using RPM
+  debug: msg="*** Check manually."
+  tags:
+    - cis-level-1
+    - cis-sec_1.2
+    - cis-sec_1.2.3

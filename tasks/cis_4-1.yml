@@ -1,4 +1,4 @@
-## CIS 4.1 Modify Network Parameters
+- name: CIS 4.1 Modify Network Parameters
 - name: CIS 4.1.1 Disable IP Forwarding
   sysctl: >
     name=net.ipv4.ip_forward

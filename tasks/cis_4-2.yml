@@ -1,4 +1,4 @@
-## CIS 4.2 Modify Network Parameters (Host and Router)
+- name: CIS 4.2 Modify Network Parameters (Host and Router)
 - name: CIS 4.2.1 Disable Source Routed Packet Acceptance (net.ipv4.conf.all.accept_source_route)
   sysctl: >
     name=net.ipv4.conf.all.accept_source_route

@@ -1,4 +1,4 @@
-## CIS 5.1 Configure rsyslog
+- name: CIS 5.1 Configure rsyslog
 - name: CIS 5.1.1 Install the rsyslog package
   yum: >
     name=rsyslog

@@ -1,4 +1,4 @@
-## CIS 4.6 Uncommon Network Protocols
+- name: CIS 4.6 Uncommon Network Protocols
 - name: CIS 4.6.1 Disable DCCP
   lineinfile: >
     state=present
