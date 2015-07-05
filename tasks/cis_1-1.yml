@@ -1,4 +1,5 @@
 - name: CIS 1.1 Filesystem Configuration
+  debug: msg="*** Starting CIS section 1.1"
 - name: CIS 1.1.1 Create Separate Partition for /tmp
   debug: msg="*** Manually create Separate Partition for /tmp."
   tags:
@@ -9,7 +10,7 @@
   mount: >
     name="/tmp"
     src={{ item.device }}
-    state=mounted
+    state=present
     fstype={{ item.fstype }}
     opts="nodev,nosuid,noexec"
   when: item.mount == "/tmp"
@@ -30,7 +31,7 @@
   mount: >
     name="/var/tmp"
     src="/tmp"
-    state=mounted
+    state=present
     fstype="none"
     opts="bind"
   when: item.mount == "/tmp"
@@ -61,7 +62,7 @@
   mount: >
     name="/home"
     src={{ item.device }}
-    state=mounted
+    state=present
     fstype={{ item.fstype }}
     opts="nodev"
   when: item.mount == "/home"
@@ -93,7 +94,7 @@
   mount: >
     name="/dev/shm"
     src={{ item.device }}
-    state=mounted
+    state=present
     fstype={{ item.fstype }}
     opts="nodev,nosuid,noexec"
   when: item.mount == "/dev/shm"

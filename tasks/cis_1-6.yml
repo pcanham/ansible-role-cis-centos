@@ -1,4 +1,5 @@
 - name: CIS 1.6 Additional Process Hardening
+  debug: msg="*** Starting CIS section 1.6"
 - name: CIS 1.6.1 Restrict Core Dumps (PAM)
   lineinfile: >
     dest=/etc/security/limits.conf
