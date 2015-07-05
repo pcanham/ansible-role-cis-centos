@@ -35,7 +35,7 @@
   tags:
     - cis-level-2
     - cis-sec_1.4
-    - cis-sec_1.4.5
+    - cis-sec_1.4.4
 - name: CIS 1.4.5 Remove MCS Translation Service (mcstrans)
   yum: >
     name=mcstrans
