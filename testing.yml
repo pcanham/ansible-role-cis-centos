@@ -8,3 +8,6 @@
   gather_facts: yes
   tasks:
     - include: 'tasks/section_01.yml'
+    - include: 'tasks/section_02.yml'
+    - include: 'tasks/section_03.yml'
+    - include: 'tasks/section_04.yml'
