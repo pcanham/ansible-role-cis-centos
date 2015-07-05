@@ -1,0 +1,10 @@
+---
+## Ansible playbook for a CentOS 7 CIS Base
+##
+##
+- hosts: localhost
+  user: vagrant
+  sudo: yes
+  gather_facts: yes
+  tasks:
+    - include: 'tasks/section_01.yml'
