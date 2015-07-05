@@ -6,6 +6,7 @@
     value=0
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
@@ -16,6 +17,7 @@
     value=0
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
@@ -26,6 +28,7 @@
     value=0
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
@@ -36,6 +39,7 @@
     value=0
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
@@ -46,6 +50,7 @@
     value=0
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-2
     - cis_4.2
@@ -56,6 +61,7 @@
     value=0
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-2
     - cis_4.2
@@ -66,6 +72,7 @@
     value=1
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
@@ -76,6 +83,7 @@
     value=1
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
@@ -86,6 +94,7 @@
     value=1
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
@@ -96,6 +105,7 @@
     value=1
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
@@ -106,6 +116,7 @@
     value=1
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-2
     - cis_4.2
@@ -116,6 +127,7 @@
     value=1
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-2
     - cis_4.2
@@ -126,6 +138,7 @@
     value=1
     state=present
     ignoreerrors=yes
+    sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
     - cis_4.2
