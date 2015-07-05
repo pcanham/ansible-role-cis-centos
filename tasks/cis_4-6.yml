@@ -1,4 +1,5 @@
 - name: CIS 4.6 Uncommon Network Protocols
+  debug: msg="*** Starting CIS section 4.6"
 - name: CIS 4.6.1 Disable DCCP
   lineinfile: >
     state=present

@@ -1,4 +1,5 @@
 - name: CIS 3 Special Purpose Services
+  debug: msg="*** Starting CIS section 3"
 - name: CIS 3.1 Set Daemon umask
   lineinfile: >
     dest=/etc/sysconfig/init
