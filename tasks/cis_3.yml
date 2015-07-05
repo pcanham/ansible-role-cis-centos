@@ -62,35 +62,50 @@
   tags:
     - cis-level-1
     - cis-sec_3.6
+- name: CIS 3.6 Configure Network Time Protocol (check /etc/ntp.conf config exists)
+  stat: path=/etc/ntp.conf
+  register: ntp_conf
+  tags:
+    - cis-level-1
+    - cis-sec_3.6
 - name: CIS 3.6 Configure Network Time Protocol (ipv4)
-    lineinfile: >
-      dest=/etc/ntp.conf
-      state=present
-      regexp="^restrict default"
-      line="restrict default kod nomodify notrap nopeer noquery"
-      insertafter=EOF
-    tags:
-      - cis-level-1
-      - cis-sec_3.6
+  lineinfile: >
+    dest=/etc/ntp.conf
+    state=present
+    regexp="^restrict default"
+    line="restrict default kod nomodify notrap nopeer noquery"
+    insertafter=EOF
+  when: ntp_conf.stat.exists
+  tags:
+    - cis-level-1
+    - cis-sec_3.6
 - name: CIS 3.6 Configure Network Time Protocol (ipv6)
-    lineinfile: >
-      dest=/etc/ntp.conf
-      state=present
-      regexp="^restrict -6 default"
-      line="restrict -6 default kod nomodify notrap nopeer noquery"
-      insertafter=EOF
-    tags:
-      - cis-level-1
-      - cis-sec_3.6
+  lineinfile: >
+    dest=/etc/ntp.conf
+    state=present
+    regexp="^restrict -6 default"
+    line="restrict -6 default kod nomodify notrap nopeer noquery"
+    insertafter=EOF
+  when: ntp_conf.stat.exists
+  tags:
+    - cis-level-1
+    - cis-sec_3.6
+- name: CIS 3.6 Configure Network Time Protocol (check /etc/sysconfig/ntpd config exists)
+  stat: path=/etc/sysconfig/ntpd
+  register: sysconfig_ntpd
+  tags:
+    - cis-level-1
+    - cis-sec_3.6
 - name: CIS 3.6 Configure Network Time Protocol (user account ntp should run as)
-    lineinfile: >
-      dest=/etc/sysconfig/ntpd
-      state=present
-      regexp="OPTIONS=\"-g\""
-      line="OPTIONS=\"-g -u ntp:ntp\""
-    tags:
-      - cis-level-1
-      - cis-sec_3.6
+  lineinfile: >
+    dest=/etc/sysconfig/ntpd
+    state=present
+    regexp="OPTIONS=\"-g\""
+    line="OPTIONS=\"-g -u ntp:ntp\""
+  when: sysconfig_ntpd.stat.exists
+  tags:
+    - cis-level-1
+    - cis-sec_3.6
 - name: CIS 3.7 Remove LDAP
   yum: "name={{item}} state=absent"
   with_items: [
@@ -174,10 +189,10 @@
     - cis-sec_3
     - cis-sec_3.15
 - name: CIS 3.16 Configure Mail Transfer Agent for Local-Only Mode
-    lineinfile: >
-      dest=/etc/postfix/main.cf
-      state=present
-      line="inet_interfaces = localhost"
-    tags:
-      - cis-level-1
-      - cis-sec_3.16
+  lineinfile: >
+    dest=/etc/postfix/main.cf
+    state=present
+    line="inet_interfaces = localhost"
+  tags:
+    - cis-level-1
+    - cis-sec_3.16
