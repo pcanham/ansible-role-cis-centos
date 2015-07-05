@@ -9,13 +9,21 @@
     - cis-level-1
     - cis-sec_3
     - cis-sec_3.1
+- name: CIS 3.2 Remove the X Window System (run level file check)
+  stat: path=/lib/systemd/system/default.target
+  register: default_runlevel
+  tags:
+    - cis-level-1
+    - cis-sec_3
+    - cis-sec_3.2
 - name: CIS 3.2 Remove the X Window System (run level)
   file: >
-    src=/usr/lib/systemd/system/multi-user.target
-    dest=/etc/lib/systemd/system/default.target
+    src=/lib/systemd/system/multi-user.target
+    dest=/lib/systemd/system/default.target
     owner=root
     group=root
     state=link
+  when: default_runlevel.stat.exists
   tags:
     - cis-level-1
     - cis-sec_3
