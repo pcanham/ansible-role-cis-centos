@@ -1,6 +1,6 @@
 - name: CIS 1.3 Advanced Intrusion Detection Environment (AIDE)
   debug: msg="*** Starting CIS section 1.3"
-- name: CIS 1.3.1 Install AIDE part 1
+- name: CIS 1.3.1 Install AIDE (installation)
   yum: >
     name=aide
     state=present
@@ -8,7 +8,7 @@
     - cis-level-1
     - cis-sec_1.3
     - cis-sec_1.3.1
-- name: CIS 1.3.1 Install AIDE part 2
+- name: CIS 1.3.1 Install AIDE (configure)
   command: >
     /usr/sbin/aide --init -B 'database_out=file:/var/lib/aide/aide.db.gz'
     creates=/var/lib/aide/aide.db.gz
@@ -16,7 +16,15 @@
     - cis-level-1
     - cis-sec_1.3
     - cis-sec_1.3.1
-- name: CIS 1.3.1 Install AIDE part 3
+- name: CIS 1.3.1 Install AIDE (install prelink)
+  yum: >
+    name=prelink
+    state=present
+  tags:
+    - cis-level-1
+    - cis-sec_1.3
+    - cis-sec_1.3.1
+- name: CIS 1.3.1 Install AIDE (prelink run)
   command: /usr/sbin/prelink -ua
   tags:
     - cis-level-1
