@@ -7,15 +7,15 @@
     insertafter=EOF
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.1
+    - cis_3
+    - cis_3.1
 - name: CIS 3.2 Remove the X Window System (run level file check)
   stat: path=/lib/systemd/system/default.target
   register: default_runlevel
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.2
+    - cis_3
+    - cis_3.2
 - name: CIS 3.2 Remove the X Window System (run level)
   file: >
     src=/lib/systemd/system/multi-user.target
@@ -26,16 +26,16 @@
   when: default_runlevel.stat.exists
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.2
+    - cis_3
+    - cis_3.2
 - name: CIS 3.2 Remove the X Window System (package removal)
   yum: >
     name=xorg-x11-server-common
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.2
+    - cis_3
+    - cis_3.2
 - name: CIS 3.3 Disable Avahi Server
   service: >
     name=avahi-daemon
@@ -43,8 +43,8 @@
     enabled=no
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.3
+    - cis_3
+    - cis_3.3
 - name: CIS 3.4 Disable Print Server - CUPS
   service: >
     name=cups
@@ -52,16 +52,16 @@
     enabled=no
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.4
+    - cis_3
+    - cis_3.4
 - name: CIS 3.5 Remove DHCP Server
   yum: >
     name=dhcp
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.5
+    - cis_3
+    - cis_3.5
 - name: CIS 3.6 Configure Network Time Protocol (package install)
   yum: >
     pkg=ntp
@@ -69,13 +69,13 @@
   always_run: yes
   tags:
     - cis-level-1
-    - cis-sec_3.6
+    - cis_3.6
 - name: CIS 3.6 Configure Network Time Protocol (check /etc/ntp.conf config exists)
   stat: path=/etc/ntp.conf
   register: ntp_conf
   tags:
     - cis-level-1
-    - cis-sec_3.6
+    - cis_3.6
 - name: CIS 3.6 Configure Network Time Protocol (ipv4)
   lineinfile: >
     dest=/etc/ntp.conf
@@ -86,7 +86,7 @@
   when: ntp_conf.stat.exists
   tags:
     - cis-level-1
-    - cis-sec_3.6
+    - cis_3.6
 - name: CIS 3.6 Configure Network Time Protocol (ipv6)
   lineinfile: >
     dest=/etc/ntp.conf
@@ -97,13 +97,13 @@
   when: ntp_conf.stat.exists
   tags:
     - cis-level-1
-    - cis-sec_3.6
+    - cis_3.6
 - name: CIS 3.6 Configure Network Time Protocol (check /etc/sysconfig/ntpd config exists)
   stat: path=/etc/sysconfig/ntpd
   register: sysconfig_ntpd
   tags:
     - cis-level-1
-    - cis-sec_3.6
+    - cis_3.6
 - name: CIS 3.6 Configure Network Time Protocol (user account ntp should run as)
   lineinfile: >
     dest=/etc/sysconfig/ntpd
@@ -113,7 +113,7 @@
   when: sysconfig_ntpd.stat.exists
   tags:
     - cis-level-1
-    - cis-sec_3.6
+    - cis_3.6
 - name: CIS 3.7 Remove LDAP
   yum: "name={{item}} state=absent"
   with_items: [
@@ -122,8 +122,8 @@
               ]
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.7
+    - cis_3
+    - cis_3.7
 - name: CIS 3.8 Disable NFS and RPC
   service: >
     name={{item}}
@@ -138,64 +138,64 @@
               ]
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.8
+    - cis_3
+    - cis_3.8
 - name: CIS 3.9 Remove DNS Server
   yum: >
     name=bind
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.9
+    - cis_3
+    - cis_3.9
 - name: CIS 3.10 Remove FTP Server
   yum: >
     name=vsftpd
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.10
+    - cis_3
+    - cis_3.10
 - name: CIS 3.11 Remove HTTP Server
   yum: >
     name=httpd
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.11
+    - cis_3
+    - cis_3.11
 - name: CIS 3.12 Remove Dovecot (IMAP and POP3 services)
   yum: >
     name=dovecot
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.12
+    - cis_3
+    - cis_3.12
 - name: CIS 3.13 Remove Samba
   yum: >
     name=samba
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.13
+    - cis_3
+    - cis_3.13
 - name: 3.14 Remove HTTP Proxy Server
   yum: >
     name=squid
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.14
+    - cis_3
+    - cis_3.14
 - name: CIS 3.15 Remove SNMP Server
   yum: >
     name=net-snmp
     state=absent
   tags:
     - cis-level-1
-    - cis-sec_3
-    - cis-sec_3.15
+    - cis_3
+    - cis_3.15
 - name: CIS 3.16 Configure Mail Transfer Agent for Local-Only Mode
   lineinfile: >
     dest=/etc/postfix/main.cf
@@ -203,4 +203,4 @@
     line="inet_interfaces = localhost"
   tags:
     - cis-level-1
-    - cis-sec_3.16
+    - cis_3.16

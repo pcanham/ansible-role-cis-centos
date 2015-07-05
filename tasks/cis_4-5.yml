@@ -6,19 +6,19 @@
     state=present
   tags:
     - cis-level-1
-    - cis-sec_4.5
-    - cis-sec_4.5.1
+    - cis_4.5
+    - cis_4.5.1
 - name: CIS 4.5.2 Create /etc/hosts.allow
   lineinfile: >
     state=present
     create=yes
     dest=/etc/hosts.allow
-    regexp=^ALL
-    line=ALL:{{ tcp_allow | default("ALL") }}
+    regexp='^ALL'
+    line='ALL:ALL'
   tags:
     - cis-level-1
-    - cis-sec_4.5
-    - cis-sec_4.5.2
+    - cis_4.5
+    - cis_4.5.2
 - name: CIS 4.5.3 Verify Permissions on /etc/hosts.allow
   file: >
     path=/etc/hosts.allow
@@ -27,8 +27,8 @@
     mode=0644
   tags:
     - cis-level-1
-    - cis-sec_4.5
-    - cis-sec_4.5.3
+    - cis_4.5
+    - cis_4.5.3
 - name: CIS 4.5.4 Create /etc/hosts.deny
   lineinfile: >
     state=present
@@ -37,8 +37,8 @@
     line="ALL: ALL"
   tags:
     - cis-level-1
-    - cis-sec_4.5
-    - cis-sec_4.5.4
+    - cis_4.5
+    - cis_4.5.4
 - name: CIS 4.5.5 Verify Permissions on /etc/hosts.deny
   file: >
     path=/etc/hosts.deny
@@ -47,5 +47,5 @@
     mode=0644
   tags:
     - cis-level-1
-    - cis-sec_4.5
-    - cis-sec_4.5.5
+    - cis_4.5
+    - cis_4.5.5

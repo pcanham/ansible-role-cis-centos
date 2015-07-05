@@ -8,8 +8,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.1
+    - cis_4.2
+    - cis_4.2.1
 - name: CIS 4.2.1 Disable Source Routed Packet Acceptance (net.ipv4.conf.default.accept_source_route)
   sysctl: >
     name=net.ipv4.conf.default.accept_source_route
@@ -18,8 +18,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.1
+    - cis_4.2
+    - cis_4.2.1
 - name: CIS 4.2.2 Disable ICMP Redirect Acceptance (net.ipv4.conf.all.accept_redirects)
   sysctl: >
     name=net.ipv4.conf.all.accept_redirects
@@ -28,8 +28,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.2
+    - cis_4.2
+    - cis_4.2.2
 - name: CIS 4.2.2 Disable ICMP Redirect Acceptance (net.ipv4.conf.default.accept_redirects)
   sysctl: >
     name=net.ipv4.conf.default.accept_redirects
@@ -38,8 +38,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.2
+    - cis_4.2
+    - cis_4.2.2
 - name: CIS 4.2.3 Disable Secure ICMP Redirect Acceptance (net.ipv4.conf.all.secure_redirects)
   sysctl: >
     name=net.ipv4.conf.all.secure_redirects
@@ -48,8 +48,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-2
-    - cis-sec_4.2
-    - cis-sec_4.2.3
+    - cis_4.2
+    - cis_4.2.3
 - name: CIS 4.2.3 Disable Secure ICMP Redirect Acceptance (net.ipv4.conf.default.secure_redirects)
   sysctl: >
     name=net.ipv4.conf.default.secure_redirects
@@ -58,8 +58,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-2
-    - cis-sec_4.2
-    - cis-sec_4.2.3
+    - cis_4.2
+    - cis_4.2.3
 - name: CIS 4.2.4 Log Suspicious Packets (net.ipv4.conf.all.log_martians)
   sysctl: >
     name=net.ipv4.conf.all.log_martians
@@ -68,8 +68,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.4
+    - cis_4.2
+    - cis_4.2.4
 - name: CIS 4.2.4 Log Suspicious Packets (net.ipv4.conf.default.log_martians)
   sysctl: >
     name=net.ipv4.conf.default.log_martians
@@ -78,8 +78,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.4
+    - cis_4.2
+    - cis_4.2.4
 - name: CIS 4.2.5 Enable Ignore Broadcast Requests
   sysctl: >
     name=net.ipv4.icmp_echo_ignore_broadcasts
@@ -88,8 +88,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.5
+    - cis_4.2
+    - cis_4.2.5
 - name: CIS 4.2.6 Enable Bad Error Message Protection
   sysctl: >
     name=net.ipv4.icmp_ignore_bogus_error_responses
@@ -98,8 +98,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.6
+    - cis_4.2
+    - cis_4.2.6
 - name: CIS 4.2.7 Enable RFC-recommended Source Route Validation (net.ipv4.conf.all.rp_filter)
   sysctl: >
     name=net.ipv4.conf.all.rp_filter
@@ -108,8 +108,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-2
-    - cis-sec_4.2
-    - cis-sec_4.2.7
+    - cis_4.2
+    - cis_4.2.7
 - name: CIS 4.2.7 Enable RFC-recommended Source Route Validation (net.ipv4.conf.default.rp_filter)
   sysctl: >
     name=net.ipv4.conf.default.rp_filter
@@ -118,8 +118,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-2
-    - cis-sec_4.2
-    - cis-sec_4.2.7
+    - cis_4.2
+    - cis_4.2.7
 - name: CIS 4.2.8 Enable TCP SYN Cookies
   sysctl: >
     name=net.ipv4.tcp_syncookies
@@ -128,5 +128,5 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.2
-    - cis-sec_4.2.8
+    - cis_4.2
+    - cis_4.2.8

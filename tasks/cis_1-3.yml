@@ -6,30 +6,30 @@
     state=present
   tags:
     - cis-level-1
-    - cis-sec_1.3
-    - cis-sec_1.3.1
+    - cis_1.3
+    - cis_1.3.1
 - name: CIS 1.3.1 Install AIDE (configure)
   command: >
     /usr/sbin/aide --init -B 'database_out=file:/var/lib/aide/aide.db.gz'
     creates=/var/lib/aide/aide.db.gz
   tags:
     - cis-level-1
-    - cis-sec_1.3
-    - cis-sec_1.3.1
+    - cis_1.3
+    - cis_1.3.1
 - name: CIS 1.3.1 Install AIDE (install prelink)
   yum: >
     name=prelink
     state=present
   tags:
     - cis-level-1
-    - cis-sec_1.3
-    - cis-sec_1.3.1
+    - cis_1.3
+    - cis_1.3.1
 - name: CIS 1.3.1 Install AIDE (prelink run)
   command: /usr/sbin/prelink -ua
   tags:
     - cis-level-1
-    - cis-sec_1.3
-    - cis-sec_1.3.1
+    - cis_1.3
+    - cis_1.3.1
 - name: CIS 1.3.2 Implement Periodic Execution of File Integrity
   cron: >
     name="CIS 1.3.2 (AIDE)"
@@ -38,5 +38,5 @@
     job="/usr/sbin/aide --check"
   tags:
     - cis-level-1
-    - cis-sec_1.3
-    - cis-sec_1.3.2
+    - cis_1.3
+    - cis_1.3.2

@@ -8,8 +8,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.1
-    - cis-sec_4.1.1
+    - cis_4.1
+    - cis_4.1.1
 - name: CIS 4.1.2 Disable Send Packet Redirects (net.ipv4.conf.all.send_redirects)
   sysctl: >
     name=net.ipv4.conf.all.send_redirects
@@ -18,8 +18,8 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.1
-    - cis-sec_4.1.2
+    - cis_4.1
+    - cis_4.1.2
 - name: CIS 4.1.2 Disable Send Packet Redirects (net.ipv4.conf.default.send_redirects)
   sysctl: >
     name=net.ipv4.conf.default.send_redirects
@@ -28,5 +28,5 @@
     ignoreerrors=yes
   tags:
     - cis-level-1
-    - cis-sec_4.1
-    - cis-sec_4.1.2
+    - cis_4.1
+    - cis_4.1.2

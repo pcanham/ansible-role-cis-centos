@@ -6,8 +6,8 @@
     key=/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
   tags:
     - cis-level-1
-    - cis-sec_1.2
-    - cis-sec_1.2.1
+    - cis_1.2
+    - cis_1.2.1
 - name: CIS 1.2.2 Verify that gpgcheck is Globally Activated
   lineinfile: >
     state=present
@@ -16,17 +16,17 @@
     line=gpgcheck=1
   tags:
     - cis-level-1
-    - cis-sec_1.2
-    - cis-sec_1.2.2
+    - cis_1.2
+    - cis_1.2.2
 - name: CIS 1.2.3 Obtain Software Package Updates with yum
   debug: msg="*** Check manually."
   tags:
     - cis-level-1
-    - cis-sec_1.2
-    - cis-sec_1.2.3
+    - cis_1.2
+    - cis_1.2.3
 - name: CIS 1.2.4 Verify Package Integrity Using RPM
   debug: msg="*** Check manually."
   tags:
     - cis-level-1
-    - cis-sec_1.2
-    - cis-sec_1.2.3
+    - cis_1.2
+    - cis_1.2.3

@@ -7,8 +7,8 @@
     line="selinux=0"
   tags:
     - cis-level-2
-    - cis-sec_1.4
-    - cis-sec_1.4.1
+    - cis_1.4
+    - cis_1.4.1
 - name: CIS 1.4.1 Enable SELinux in /boot/grub2/grub.cfg (enforcing=0)
   lineinfile: >
     state=absent
@@ -16,8 +16,8 @@
     line="enforcing=0"
   tags:
     - cis-level-2
-    - cis-sec_1.4
-    - cis-sec_1.4.1
+    - cis_1.4
+    - cis_1.4.1
 - name: CIS 1.4.2 + 1.4.3 Set the SELinux State and Policy
   selinux: >
     state=enforcing
@@ -25,28 +25,28 @@
   ignore_errors: yes
   tags:
     - cis-level-2
-    - cis-sec_1.4
-    - cis-sec_1.4.2
-    - cis-sec_1.4.3
+    - cis_1.4
+    - cis_1.4.2
+    - cis_1.4.3
 - name: CIS 1.4.4 Remove SETroubleshoot
   yum: >
     name=setroubleshoot
     state=absent
   tags:
     - cis-level-2
-    - cis-sec_1.4
-    - cis-sec_1.4.4
+    - cis_1.4
+    - cis_1.4.4
 - name: CIS 1.4.5 Remove MCS Translation Service (mcstrans)
   yum: >
     name=mcstrans
     state=absent
   tags:
     - cis-level-2
-    - cis-sec_1.4
-    - cis-sec_1.4.5
+    - cis_1.4
+    - cis_1.4.5
 - name: CIS 1.4.6 Check for Unconfined Daemons
   debug: msg="*** Check manually."
   tags:
     - cis-level-2
-    - cis-sec_1.4
-    - cis-sec_1.4.6
+    - cis_1.4
+    - cis_1.4.6

@@ -5,5 +5,5 @@
     enabled=yes
   tags:
     - cis-level-1
-    - cis-sec_4
-    - cis-sec_4.7
+    - cis_4
+    - cis_4.7
