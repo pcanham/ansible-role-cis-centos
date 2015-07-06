@@ -11,3 +11,4 @@
     - include: 'tasks/section_02.yml'
     - include: 'tasks/section_03.yml'
     - include: 'tasks/section_04.yml'
+    - include: 'tasks/cis_5-1.yml'
