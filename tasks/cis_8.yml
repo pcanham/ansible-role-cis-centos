@@ -1,18 +1,28 @@
-# CIS 8 Warning Banners
-# CIS 8.1 Set Warning Banner for Standard Login Services
-### - cis-level-1
-/etc/motd
-/etc/issue
-/etc/issue.net
-# CIS 8.2 Remove OS Information from Login Warning Banners
-### - cis-level-1
-\m - machine architecture (uname -m)
-\r - operating system release (uname -r)
-\s - operating system name
-\v - operating system version (uname -v)
+---
+- name: CIS 8 Warning Banners
+  debug: msg="*** Starting CIS section 8"
+- name: CIS 8.1 Set Warning Banner for Standard Login Services (issue)
+  template: src=files/issue dest=/etc/issue owner=root group=root mode=0644
+  tags:
+    - cis-level-1
+    - cis_8
+    - cis_8.1
+- name: CIS 8.1 Set Warning Banner for Standard Login Services (issue.net)
+  template: src=files/issue.net dest=/etc/issue.net owner=root group=root mode=0644
+  tags:
+    - cis-level-1
+    - cis_8
+    - cis_8.1
+  sudo: yes
+- name: CIS 8.1 Set Warning Banner for Standard Login Services (motd)
+  template: src=files/motd dest=/etc/motd owner=root group=root mode=0644
+  tags:
+    - cis-level-1
+    - cis_8
+    - cis_8.1
+- name: CIS 8.2 Remove OS Information from Login Warning Banners
+  debug: msg="*** Template deployed during 8.1 does not have OS Info in"
 
-Edit the /etc/motd, /etc/issue and /etc/issue.net files and remove any lines
-containing \m, \r, \s or \v.
 # CIS 8.3 Set GNOME Warning Banner
 ### - cis-level-1
 /etc.d/dconf/db/gdm.d/01-banner-message
