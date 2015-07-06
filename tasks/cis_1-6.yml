@@ -7,6 +7,7 @@
     insertafter=EOF
   tags:
     - cis-level-1
+    - cis_1
     - cis_1.6
     - cis_1.6.1
 - name: CIS 1.6.1 Restrict core dumps (sysctl)
@@ -18,6 +19,7 @@
     sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
+    - cis_1
     - cis_1.6
     - cis_1.6.1
 - name: CIS 1.6.2 Enable Randomized Virtual Memory Region Placement
@@ -29,5 +31,6 @@
     sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
+    - cis_1
     - cis_1.6
     - cis_1.6.2

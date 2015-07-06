@@ -4,5 +4,6 @@
   debug: msg="*** Not Applicable"
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.3
     - cis_4.3.1

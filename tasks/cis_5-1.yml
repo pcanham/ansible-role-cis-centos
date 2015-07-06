@@ -6,6 +6,7 @@
     state=present
   tags:
     - cis-level-1
+    - cis_5
     - cis_5.1
     - cis_5.1.1
 - name: CIS 5.1.2 Activate the rsyslog Service
@@ -48,6 +49,7 @@ lpr,news,uucp,local0,local1,local2,local3,local4,local5,local6.* /var/log/unused
 		- maillog
   tags:
     - cis-level-1
+    - cis_5
     - cis_5.1
     - cis_5.1.4
 

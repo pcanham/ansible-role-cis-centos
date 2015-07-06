@@ -1,4 +1,3 @@
----
 - name: CIS 8 Warning Banners
   debug: msg="*** Starting CIS section 8"
 - name: CIS 8.1 Set Warning Banner for Standard Login Services (issue)

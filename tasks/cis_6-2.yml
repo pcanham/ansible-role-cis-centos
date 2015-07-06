@@ -1,4 +1,3 @@
----
 - name: CIS 6.2 Configure SSH
   debug: msg="*** Starting CIS section 6.2"
 - name: CIS 6.2.1 Set SSH Protocol to 2
@@ -8,6 +7,7 @@
     line='Protocol 2'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.1
 - name: CIS 6.2.2 Set LogLevel to INFO
@@ -17,6 +17,7 @@
     line='LogLevel INFO'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.2
 - name: CIS 6.2.3 Set Permissions on /etc/ssh/sshd_config
@@ -28,6 +29,7 @@
     group="root"
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.3
 - name: CIS 6.2.4 Disable SSH X11 Forwarding
@@ -37,6 +39,7 @@
     line='X11Forwarding no'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.4
 - name: CIS 6.2.5 Set SSH MaxAuthTries to 4 or Less
@@ -46,6 +49,7 @@
     line='MaxAuthTries 4'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.5
 - name: CIS 6.2.6 Set SSH IgnoreRhosts to Yes
@@ -55,6 +59,7 @@
     line='IgnoreRhosts yes'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.6
 - name: CIS 6.2.7 Set SSH HostbasedAuthentication to No
@@ -64,6 +69,7 @@
     line='HostbasedAuthentication no'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.7
 - name: CIS 6.2.8 Disable SSH Root Login
@@ -73,6 +79,7 @@
     line='PermitRootLogin no'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.8
 - name: CIS 6.2.9 Set SSH PermitEmptyPasswords to No
@@ -82,6 +89,7 @@
     line='PermitEmptyPasswords no'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.9
 - name: CIS 6.2.10 Do Not Allow Users to Set Environment Options
@@ -91,6 +99,7 @@
     line='PermitUserEnvironment no'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.10
 - name: CIS 6.2.11 Use Only Approved Cipher in Counter Mode
@@ -100,6 +109,7 @@
     insertafter=EOF
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.11
 - name: CIS 6.2.12 Set Idle Timeout Interval for User Login - ClientAliveInterval
@@ -109,6 +119,7 @@
     line='#ClientAliveInterval 300'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.12
 - name: CIS 6.2.12 Set Idle Timeout Interval for User Login - ClientAliveCountMax
@@ -118,6 +129,7 @@
     line='ClientAliveCountMax 0'
   tags:
     - cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.13
 #- name: CIS 6.2.13 Limit Access via SSH - AllowUsers
@@ -127,6 +139,7 @@
 #    insertafter=EOF
 #  tags:
 #    - cis-level-1
+#    - cis_6
 #    - cis_6.2
 #    - cis_6.2.13
 #- name: CIS 6.2.13 Limit Access via SSH - AllowGroups
@@ -136,6 +149,7 @@
 #    insertafter=EOF
 #  tags:
 #    - cis-level-1
+#    - cis_6
 #    - cis_6.2
 #    - cis_6.2.13
 #- name: CIS 6.2.13 Limit Access via SSH - DenyUsers
@@ -145,6 +159,7 @@
 #    insertafter=EOF
 #  tags:
 #    - cis-level-1
+#    - cis_6
 #    - cis_6.2
 #    - cis_6.2.13
 #- name: CIS 6.2.13 Limit Access via SSH - DenyUsers
@@ -154,6 +169,7 @@
 #    insertafter=EOF
 #  tags:
 #    - cis-level-1
+#    - cis_6
 #    - cis_6.2
 #    - cis_6.2.13
 #- name: CIS 6.2.13 Limit Access via SSH - DenyGroups
@@ -163,6 +179,7 @@
 #    insertafter=EOF
 #  tags:
 #    - cis-level-1
+#    - cis_6
 #    - cis_6.2
 #    - cis_6.2.13
 - name: CIS 6.2.14 Set SSH Banner
@@ -172,7 +189,6 @@
     line='Banner /etc/issue'
   tags:
   	- cis-level-1
+    - cis_6
     - cis_6.2
     - cis_6.2.14
-
-

@@ -4,4 +4,5 @@
   debug: msg="*** Use the Latest OS Release, check for updates on a regular basis"
   tags:
     - cis-level-1
+    - cis_1
     - cis_1.7

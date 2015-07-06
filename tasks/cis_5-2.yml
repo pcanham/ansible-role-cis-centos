@@ -6,6 +6,7 @@
     state=present
   tags:
     - cis-level-1
+    - cis_5
     - cis_5.2
 # CIS 5.2.1 Configure Data Retention
 # CIS 5.2.1.1 Configure Audit Log Storage Size

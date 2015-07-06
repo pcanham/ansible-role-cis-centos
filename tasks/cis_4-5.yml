@@ -6,6 +6,7 @@
     state=present
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.5
     - cis_4.5.1
 - name: CIS 4.5.2 Create /etc/hosts.allow
@@ -17,6 +18,7 @@
     line='ALL:ALL'
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.5
     - cis_4.5.2
 - name: CIS 4.5.3 Verify Permissions on /etc/hosts.allow
@@ -27,6 +29,7 @@
     mode=0644
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.5
     - cis_4.5.3
 - name: CIS 4.5.4 Create /etc/hosts.deny
@@ -37,6 +40,7 @@
     line="ALL: ALL"
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.5
     - cis_4.5.4
 - name: CIS 4.5.5 Verify Permissions on /etc/hosts.deny
@@ -47,5 +51,6 @@
     mode=0644
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.5
     - cis_4.5.5

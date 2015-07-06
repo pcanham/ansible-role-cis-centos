@@ -10,6 +10,7 @@
   changed_when: false
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.6
     - cis_4.6.1
     - cis_4.6.2
@@ -22,6 +23,7 @@
     line="install dccp /bin/true"
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.6
     - cis_4.6.1
 - name: CIS 4.6.2 Disable SCTP
@@ -31,6 +33,7 @@
     line="install sctp /bin/true"
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.6
     - cis_4.6.2
 - name: CIS 4.6.3 Disable RDS
@@ -40,6 +43,7 @@
     line="install rds /bin/true"
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.6
     - cis_4.6.3
 - name: CIS 4.6.4 Disable TIPC
@@ -49,5 +53,6 @@
     line="install tipc /bin/true"
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.6
     - cis_4.6.4

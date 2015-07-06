@@ -5,6 +5,7 @@
   changed_when: false
   tags:
     - cis-level-1
+    - cis_1
     - cis_1.5
     - cis_1.5.1
     - cis_1.5.2
@@ -12,5 +13,6 @@
   debug: msg="*** Dangerous for Production! Please assess whether required."
   tags:
     - cis-level-1
+    - cis_1
     - cis_1.5
     - cis_1.5.3

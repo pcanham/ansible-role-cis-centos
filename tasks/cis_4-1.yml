@@ -9,6 +9,7 @@
     sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.1
     - cis_4.1.1
 - name: CIS 4.1.2 Disable Send Packet Redirects (net.ipv4.conf.all.send_redirects)
@@ -20,6 +21,7 @@
     sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.1
     - cis_4.1.2
 - name: CIS 4.1.2 Disable Send Packet Redirects (net.ipv4.conf.default.send_redirects)
@@ -31,5 +33,6 @@
     sysctl_file=/etc/sysctl.conf
   tags:
     - cis-level-1
+    - cis_4
     - cis_4.1
     - cis_4.1.2
