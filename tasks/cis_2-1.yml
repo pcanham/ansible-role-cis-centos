@@ -1,5 +1,10 @@
 - name: CIS 2.1 Remove Legacy Services
   debug: msg="*** Starting CIS section 2.1"
+  tags:
+    - cis-level-1
+    - cis-level-2
+    - cis_2
+    - cis_2.1
 - name: CIS 2.1.1 Remove telnet-server
   yum: >
     name=telnet-server

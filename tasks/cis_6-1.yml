@@ -1,7 +1,15 @@
 - name: CIS 6.1 Remove Legacy Services
   debug: msg="*** Starting CIS section 6.1"
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.1
 - name: CIS 6.1 Configure cron and anacron
   debug: msg="*** Starting CIS section 6.1"
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.1
 - name: CIS 6.1.1 Enable anacron Daemon
   yum: >
     name=cronie-anacron

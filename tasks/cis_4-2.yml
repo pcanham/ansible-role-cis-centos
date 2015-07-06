@@ -1,5 +1,10 @@
 - name: CIS 4.2 Modify Network Parameters (Host and Router)
   debug: msg="*** Starting CIS section 4.2"
+  tags:
+    - cis-level-1
+    - cis-level-2
+    - cis_4
+    - cis_4.2
 - name: CIS 4.2.1 Disable Source Routed Packet Acceptance (net.ipv4.conf.all.accept_source_route)
   sysctl: >
     name=net.ipv4.conf.all.accept_source_route

@@ -1,5 +1,9 @@
 - name: CIS 1.1 Filesystem Configuration
   debug: msg="*** Starting CIS section 1.1"
+  tags:
+    - cis-level-1
+    - cis_1
+    - cis_1.1
 - name: CIS 1.1.1 Create Separate Partition for /tmp
   debug: msg="*** Manually create Separate Partition for /tmp."
   tags:

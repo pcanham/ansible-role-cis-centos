@@ -1,5 +1,9 @@
 - name: CIS 6.2 Configure SSH
   debug: msg="*** Starting CIS section 6.2"
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.2
 - name: CIS 6.2.1 Set SSH Protocol to 2
   lineinfile:
     dest=/etc/ssh/sshd_config

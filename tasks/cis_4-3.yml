@@ -1,5 +1,9 @@
 - name: CIS 4.3 Wireless Networking
   debug: msg="*** Starting CIS section 4.3"
+  tags:
+    - cis-level-1
+    - cis_4
+    - cis_4.3
 - name: CIS 4.3.1 Deactivate Wireless Interfaces
   debug: msg="*** Not Applicable"
   tags:

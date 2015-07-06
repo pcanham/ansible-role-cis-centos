@@ -1,5 +1,9 @@
 - name: CIS 1.4 Configure SELinux
   debug: msg="*** Starting CIS section 1.4"
+  tags:
+    - cis-level-2
+    - cis_1
+    - cis_1.4
 - name: CIS 1.4.1 Enable SELinux in /boot/grub2/grub.cfg (selinux=0)
   lineinfile: >
     state=absent

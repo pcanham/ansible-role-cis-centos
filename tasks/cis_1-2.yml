@@ -1,5 +1,9 @@
 - name: CIS 1.2 Configure Software Updates
   debug: msg="*** Starting CIS section 1.2"
+  tags:
+    - cis-level-1
+    - cis_1
+    - cis_1.2
 - name: CIS 1.2.1 Verify CentOS GPG Key is Installed
   rpm_key:
     state=present

@@ -1,7 +1,16 @@
 - name: CIS 4.4 IPv6
   debug: msg="*** Starting CIS section 4.4"
+  tags:
+    - cis-level-1
+    - cis_4
+    - cis_4.4
 - name: CIS 4.4.1 Configure IPv6
   debug: msg="*** Starting CIS section 4.4.1"
+  tags:
+    - cis-level-1
+    - cis_4
+    - cis_4.4
+    - cis_4.4.1
 - name: CIS 4.4.1.1 Disable IPv6 Router Advertisements (net.ipv6.conf.all.accept_ra)
   sysctl: >
     name=net.ipv6.conf.all.accept_ra
