@@ -1,6 +1,11 @@
-## CIS 5.3 Configure logrotate
-### - cis-level-1
-/etc/logrotate.d/syslog
-/var/log/messages /var/log/secure /var/log/maillog /var/log/spooler /var/log/boot.log /var/log/cron {
-
-
+- name: CIS 5.3 Configure logrotate
+  template: >
+    src=files/logrotate_syslog
+    dest=/etc/logrotate.d/syslog
+    owner=root
+    group=root
+    mode=0644
+  tags:
+    - cis-level-1
+    - cis_5
+    - cis_5.3

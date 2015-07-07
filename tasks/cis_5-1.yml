@@ -24,7 +24,12 @@
     - cis_5.1
     - cis_5.1.2
 - name: CIS 5.1.3 Configure /etc/rsyslog.conf
-  template: src=templates/rsyslog.conf.j2 dest=/etc/rsyslog.conf owner=root group=root mode=0644
+  template: >
+    src=templates/rsyslog.conf.j2
+    dest=/etc/rsyslog.conf
+    owner=root
+    group=root
+    mode=0644
   tags:
     - cis-level-1
     - cis_5

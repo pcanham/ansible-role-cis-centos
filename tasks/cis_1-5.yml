@@ -5,7 +5,12 @@
     - cis_1
     - cis_1.5
 - name: CIS 1.5.1 + 1.5.2 Set Ownership and Permissions on /boot/grub2/grub.cfg
-  file: path=/boot/grub2/grub.cfg state=touch owner=root group=root mode='og-rwx'
+  file: >
+    path=/boot/grub2/grub.cfg
+    state=touch
+    owner=root
+    group=root
+    mode='og-rwx'
   changed_when: false
   tags:
     - cis-level-1

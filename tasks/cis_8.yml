@@ -1,20 +1,35 @@
 - name: CIS 8 Warning Banners
   debug: msg="*** Starting CIS section 8"
 - name: CIS 8.1 Set Warning Banner for Standard Login Services (issue)
-  template: src=files/issue dest=/etc/issue owner=root group=root mode=0644
+  template: >
+    src=files/issue
+    dest=/etc/issue
+    owner=root
+    group=root
+    mode=0644
   tags:
     - cis-level-1
     - cis_8
     - cis_8.1
 - name: CIS 8.1 Set Warning Banner for Standard Login Services (issue.net)
-  template: src=files/issue.net dest=/etc/issue.net owner=root group=root mode=0644
+  template: >
+    src=files/issue.net
+    dest=/etc/issue.net
+    owner=root
+    group=root
+    mode=0644
   tags:
     - cis-level-1
     - cis_8
     - cis_8.1
   sudo: yes
 - name: CIS 8.1 Set Warning Banner for Standard Login Services (motd)
-  template: src=files/motd dest=/etc/motd owner=root group=root mode=0644
+  template: >
+    src=files/motd
+    dest=/etc/motd
+    owner=root
+    group=root
+    mode=0644
   tags:
     - cis-level-1
     - cis_8
@@ -27,7 +42,6 @@
 /etc.d/dconf/db/gdm.d/01-banner-message
 [org/gnome/login-screen]
 banner-message-enable=true
-banner-message-text='Type the banner message here' 
+banner-message-text='Type the banner message here'
 
 dconf update
-

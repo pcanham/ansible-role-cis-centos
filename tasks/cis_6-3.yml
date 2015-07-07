@@ -1,20 +1,94 @@
-## CIS 6.3 Configure PAM
-# CIS 6.3.1 Upgrade Password Hashing Algorithm to SHA-512
-### - cis-level-1
-authconfig --passalgo=sha512 --update
+- name: CIS 6.3 Configure PAM
+  debug: msg="*** Starting CIS section 6.3"
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.3
+- name: CIS 6.3.1 Upgrade Password Hashing Algorithm to SHA-512 (checking)
+  command: 'authconfig --test | grep hashing'
+  register: hash_algorithm
+  always_run: yes
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.3
+    - cis_6.3.1
+- name: CIS 6.3.1 Upgrade Password Hashing Algorithm to SHA-512 (implementing)
+  command: authconfig --passalgo=sha512 --update
+  when: "sha512" not in hash_algorithm.stdout
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.3
+    - cis_6.3.1
+- name: CIS 6.3.2 Set Password Creation Requirement Parameters Using pam_pwquality (system-auth)
+  lineinfile: >
+    dest=/etc/pam.d/system-auth
+    regexp='^password requisite pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type='
+    line='password requisite pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type='
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.2
+    - cis_6.3.2
 
-# CIS 6.3.2 Set Password Creation Requirement Parameters Using pam_pwquality
-### - cis-level-1
-/etc/pam.d/system-auth
-password requisite pam_pwquality.so try_first_pass local_users_only retry=3
-authtok_type=
+- name: CIS 6.3.2 Set Password Creation Requirement Parameters Using pam_pwquality (pwquality.conf: minlen)
+  lineinfile: >
+    state=present
+    dest=/etc/security/pwquality.conf
+    regexp='^# minlen = '
+    line='minlen = 14'
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.2
+    - cis_6.3.2
 
-/etc/security/pwquality.conf
-minlen=14
-dcredit=-1
-ucredit=-1
-ocredit=-1
-lcredit=-1
+- name: CIS 6.3.2 Set Password Creation Requirement Parameters Using pam_pwquality (pwquality.conf: dcredit)
+  lineinfile: >
+    state=present
+    dest=/etc/security/pwquality.conf
+    regexp='# dcredit = '
+    line='dcredit = -1'
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.2
+    - cis_6.3.2
+- name: CIS 6.3.2 Set Password Creation Requirement Parameters Using pam_pwquality (pwquality.conf: ucredit)
+  lineinfile: >
+    state=present
+    dest=/etc/security/pwquality.conf
+    regexp='# ucredit = '
+    line='ucredit = -1'
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.2
+    - cis_6.3.2
+- name: CIS 6.3.2 Set Password Creation Requirement Parameters Using pam_pwquality (pwquality.conf: ocredit)
+  lineinfile: >
+    state=present
+    dest=/etc/security/pwquality.conf
+    regexp='# ocredit = '
+    line='ocredit = -1'
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.2
+    - cis_6.3.2
+- name: CIS 6.3.2 Set Password Creation Requirement Parameters Using pam_pwquality (pwquality.conf: lcredit)
+  lineinfile: >
+    state=present
+    dest=/etc/security/pwquality.conf
+    regexp='# lcredit = '
+    line='lcredit = -1'
+  tags:
+    - cis-level-1
+    - cis_6
+    - cis_6.2
+    - cis_6.3.2
+
 
 # CIS 6.3.3 Set Lockout for Failed Password Attempts
 ### - cis-level-1
